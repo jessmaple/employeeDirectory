@@ -3,7 +3,8 @@ import React from "react";
 export  default function Jumbotron(props) {
   return (
     <div className="jumbotron" style={{backgroundColor:"#151D5E", color:"#fff"}}>
-      <h1 className="" >Employee Directory</h1>
+      <h1 className="jumboh1" >Employee Directory</h1>
+      
     </div>
   );
 }
