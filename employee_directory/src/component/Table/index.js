@@ -15,10 +15,11 @@ export default function Table(props) {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
+            <th scope="row"><img src="https://randomuser.me/api/portraits/thumb/men/40.jpg"/></th>
             <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>00000000</td>
+            <td>mark@Email</td>
+            <td>10-26-79</td>
           </tr>
           <tr>
             <th scope="row">2</th>
