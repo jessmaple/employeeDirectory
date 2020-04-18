@@ -1,8 +1,9 @@
 import React from "react";
-function Jumbotron(props) {
+// Construtors are reusable objects, allows you to reuse the same setup through functions 
+export  default function Jumbotron(props) {
   return (
-    <div className="jumbotron">
-      <h1 className="">Employee Directory</h1>
+    <div className="jumbotron" style={{backgroundColor:"#151D5E", color:"#fff"}}>
+      <h1 className="" >Employee Directory</h1>
     </div>
   );
 }
