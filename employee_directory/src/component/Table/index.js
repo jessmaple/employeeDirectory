@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import EmployeeContext from "../../utils/EmployeeContext";
+import moment from "moment";
 export default function Table(props) {
   let employeeState = useContext(EmployeeContext);
   return (
@@ -29,7 +30,11 @@ export default function Table(props) {
                     </td>
                     <td>{employee.phone}</td>
                     <td>{employee.email}</td>
-                    <td>{employee.dob.date}</td>
+                    <td>
+                      {moment(employee.dob.date, "YYYY-MM-DD").format(
+                        "MM/DD/YYYY"
+                      )}
+                    </td>
                   </tr>
                 );
               })
