@@ -1,11 +1,10 @@
-import React from "react";
-import EmployeeContext from "../../utils/EmployeeContext"
+import React, { useContext } from "react";
+import EmployeeContext from "../../utils/EmployeeContext";
 export default function Table(props) {
-    const employeeState = useContext(EmployeeContext)
+  const employeeState = useContext(EmployeeContext);
   return (
     <div>
-
-        {console.log("employee: ", employeeState.employeeList)}
+      {console.log("employee: ", employeeState.employeeList)}
       <table className="table">
         <thead>
           <tr>
@@ -17,28 +16,23 @@ export default function Table(props) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"><img src="https://randomuser.me/api/portraits/thumb/men/40.jpg"/></th>
-            <td>Mark</td>
-            <td>00000000</td>
-            <td>mark@Email</td>
-            <td>10-26-79</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {employeeState.employeeList.map((employee) => {
+            return (
+              <tr>
+                <th scope="row">
+                  <img src={employee.picture.thumbnail} />
+                </th>
+                <td>
+                  {employee.name.first} {employee.name.last}
+                </td>
+                <td>{employee.phone}</td>
+                <td>{employee.email}</td>
+                <td>{employee.dob}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
   );
-
 }
