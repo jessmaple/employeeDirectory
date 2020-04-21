@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import EmployeeContext from "../../utils/EmployeeContext";
 export default function Table(props) {
-  const employeeState = useContext(EmployeeContext);
+  let employeeState = useContext(EmployeeContext);
   return (
     <div>
-      {console.log("employee: ", employeeState.employeeList)}
+      {/* {console.log("employee: ", employeeState.employeeList)} */}
       <table className="table">
         <thead>
           <tr>
@@ -16,21 +16,24 @@ export default function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {employeeState.employeeList.map((employee) => {
-            return (
-              <tr>
-                <th scope="row">
-                  <img src={employee.picture.thumbnail} />
-                </th>
-                <td>
-                  {employee.name.first} {employee.name.last}
-                </td>
-                <td>{employee.phone}</td>
-                <td>{employee.email}</td>
-                <td>{employee.dob}</td>
-              </tr>
-            );
-          })}
+          {employeeState.employeeList.length > 0
+            ? employeeState.employeeList.map((employee, id) => {
+                return (
+                  <tr key={id}>
+                    <td>
+                      <img src={employee.picture.thumbnail} />
+                    </td>
+
+                    <td>
+                      {employee.name.first} {employee.name.last}
+                    </td>
+                    <td>{employee.phone}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.dob.date}</td>
+                  </tr>
+                );
+              })
+            : ""}
         </tbody>
       </table>
     </div>
