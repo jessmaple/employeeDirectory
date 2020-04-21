@@ -4,16 +4,16 @@ import './App.css';
 import Jumbotron from './component/Jumbotron'
 import Textbox from './component/Textbox'
 import Table from './component/Table'
-
+import EmployeeContext from './utils/EmployeeContext'
 
 function App() {
   return (
-    <div className="App">
+    <EmployeeContext.provider >
         <Jumbotron/>
         <Textbox/>
         <br/>
         <Table/>
-    </div>
+    </EmployeeContext.provider>
   );
 }
 
