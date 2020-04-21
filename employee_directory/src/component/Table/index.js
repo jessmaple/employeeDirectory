@@ -1,8 +1,11 @@
 import React from "react";
-
+import EmployeeContext from "../../utils/EmployeeContext"
 export default function Table(props) {
+    const employeeState = useContext(EmployeeContext)
   return (
     <div>
+
+        {console.log("employee: ", employeeState.employeeList)}
       <table className="table">
         <thead>
           <tr>
