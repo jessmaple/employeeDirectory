@@ -35,16 +35,17 @@ function App() {
       [name]:value
 
     })
-    console.log(value)
+   
     const newEmployeeList = employeeState.employeeList.filter(person=>{
-      return person.name.first.toLowerCase().indexOf(value.toLowerCase())  || person.name.last.toLowerCase().indexOf(value.toLowerCase())
+      return person.name.first.toLowerCase().indexOf(value.toLowerCase())  
     })
 
       setEmployeeState({
         ...employeeState, 
+     
         employeeList: newEmployeeList
       })
-
+     console.log(employeeState.employeeList)
 
   }
   return (
