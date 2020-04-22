@@ -26,10 +26,31 @@ function App() {
     });
   }, []);
 
+ const handleInputChange =  (event)=> {
+    const {name, value} = event.target 
+
+    setEmployeeState({
+     ...employeeState, 
+       
+      [name]:value
+
+    })
+    console.log(value)
+    const newEmployeeList = employeeState.employeeList.filter(person=>{
+      return person.name.first.toLowerCase().indexOf(value.toLowerCase())  || person.name.last.toLowerCase().indexOf(value.toLowerCase())
+    })
+
+      setEmployeeState({
+        ...employeeState, 
+        employeeList: newEmployeeList
+      })
+
+
+  }
   return (
     <EmployeeContext.Provider value={employeeState}>
       <Jumbotron />
-      <Textbox />
+      <Textbox  handleInputChange = {handleInputChange} />
       <br />
       <Table />
     </EmployeeContext.Provider>

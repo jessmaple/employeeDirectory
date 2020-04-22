@@ -1,9 +1,11 @@
-import React from "react";
-
-export default function Textbox(props){
+import React , {useContext}from "react";
+import EmployeeContext from "../../utils/EmployeeContext"
+export default function Textbox({handleInputChange}){
+    const {search}= useContext(EmployeeContext)
    return(
        <div>
-           <input type="text" className="textBox"/>
+           <input type="text" name="search" value= {search} onChange = {handleInputChange}  className="textBox"/>
+          
        </div>
    )
 }
