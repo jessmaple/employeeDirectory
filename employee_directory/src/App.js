@@ -26,6 +26,17 @@ function App() {
     });
   }, []);
 
+  const handleSubmit = (columnName) => {
+    let newEmployeeList = employeeState.employeeList.sort((a, b) => {
+      return a.name[columnName].localeCompare(b.name[columnName]);
+    });
+
+     setEmployeeState({
+       ...employeeState, 
+       employeeList:newEmployeeList
+     })
+
+  };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
@@ -55,7 +66,9 @@ function App() {
       <Jumbotron />
       <Textbox handleInputChange={handleInputChange} />
       <br />
-      <Table />
+      <Table handleSubmit = {
+        handleSubmit
+      }/>
     </EmployeeContext.Provider>
   );
 }
