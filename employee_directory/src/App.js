@@ -26,32 +26,34 @@ function App() {
     });
   }, []);
 
- const handleInputChange =  (event)=> {
-    const {name, value} = event.target 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
     setEmployeeState({
-     ...employeeState, 
-       
-      [name]:value
+      ...employeeState,
 
-    })
-   
-    const newEmployeeList = employeeState.employeeList.filter(person=>{
-      return person.name.first.toLowerCase().indexOf(value.toLowerCase())  
-    })
+      [name]: value,
+    });
 
-      setEmployeeState({
-        ...employeeState, 
-     
-        employeeList: newEmployeeList
-      })
-     console.log(employeeState.employeeList)
+    const newEmployeeList = employeeState.originalList.filter((person) => {
+      return (
+        person.name.first.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+        person.name.last.toLowerCase().indexOf(value.toLowerCase()) > -1
+      );
+    });
 
-  }
+    setEmployeeState({
+      ...employeeState,
+
+      employeeList: newEmployeeList,
+      search: value,
+    });
+    console.log(employeeState.employeeList);
+  };
   return (
     <EmployeeContext.Provider value={employeeState}>
       <Jumbotron />
-      <Textbox  handleInputChange = {handleInputChange} />
+      <Textbox handleInputChange={handleInputChange} />
       <br />
       <Table />
     </EmployeeContext.Provider>
