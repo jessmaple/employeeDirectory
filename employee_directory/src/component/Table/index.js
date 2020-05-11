@@ -10,12 +10,22 @@ export default function Table(props) {
         <thead>
           <tr>
             <th scope="col">Image</th>
-            <th scope="col" onClick = {()=> {
-              props.handleSubmit("first")
-            }}  >First Name</th>
-            <th scope="col" onClick = {() => {
-              props.handleSubmit("last")
-            }}>Last Name</th>
+            <th
+              scope="col"
+              onClick={() => {
+                props.handleSubmit("first");
+              }}
+            >
+              First Name
+            </th>
+            <th
+              scope="col"
+              onClick={() => {
+                props.handleSubmit("last");
+              }}
+            >
+              Last Name
+            </th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">DOB</th>
